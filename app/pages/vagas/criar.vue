@@ -57,10 +57,10 @@ const vacancy = ref<VacancyObj>({
   description: ''
 });
 
-const onSubmit = async () => {
-  const response = await useSetVacancy(vacancy.value);
+const onSubmit = async (e: any) => {
+  e.preventDefault();
 
-  console.log(response);
+  const response = await useSetVacancy(vacancy.value);
 
   if (response && !response.error) {
     toast.add({
