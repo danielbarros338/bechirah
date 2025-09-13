@@ -1,5 +1,4 @@
-export interface Vacancie {
-  id: number;
+export interface VacancyObj {
   profession: string;
   experienceTime: number;
   type: string;
@@ -9,8 +8,12 @@ export interface Vacancie {
   description: string;
 }
 
+export interface Vacancy extends VacancyObj {
+  id: number;
+}
+
 export interface VacanciesResponse {
-  json: Vacancie;
+  json: Vacancy;
   pairedItem: Array<PairedItem>;
 }
 

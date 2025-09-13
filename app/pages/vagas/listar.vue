@@ -43,14 +43,14 @@
 <script setup lang="ts">
 import type { TableColumn } from '@nuxt/ui';
 import useGetVacancies from '../../composable/useGetVacancies';
-import type { Vacancie } from '../../types/vacancies';
+import type { Vacancy } from '../../types/vacancies';
 
 
 const UButton = resolveComponent('UButton') as Component;
 
 const isModalOpen = ref(false);
-const vacancies = ref<Vacancie[]>([]);
-const columns: TableColumn<Vacancie>[] = [
+const vacancies = ref<Vacancy[]>([]);
+const columns: TableColumn<Vacancy>[] = [
   { accessorKey: 'profession', header: 'Profissão' },
   { accessorKey: 'experienceTime', header: 'Tempo de experiência' },
   { accessorKey: 'type', header: 'Tipo de contratação' },
@@ -74,9 +74,9 @@ const columns: TableColumn<Vacancie>[] = [
   }
 ];
 
-const selectedVacancie = ref<Vacancie | null>(null);
+const selectedVacancie = ref<Vacancy | null>(null);
 
-function openModal(vacancie: Vacancie) {
+function openModal(vacancie: Vacancy) {
   selectedVacancie.value = vacancies.value.find(v => v.id === vacancie.id) || null;
   isModalOpen.value = true;
 }
