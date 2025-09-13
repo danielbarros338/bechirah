@@ -5,7 +5,7 @@
       class="shadow-lg"
       color="warning"
     />
-    <UContainer class="min-h-screen">
+    <UContainer class="min-h-screen py-5">
       <slot />
     </UContainer>
   </div>
@@ -22,7 +22,7 @@ const items = ref<NavigationMenuItem[]>([
       {
         label: 'Listar',
         icon: 'mdi-format-list-bulleted',
-        to: '/candidatos',
+        to: '/candidatos/listar',
       },
     ]
   },{
