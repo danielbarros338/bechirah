@@ -1,6 +1,10 @@
 <template>
   <div>
-    <UNavigationMenu collapsed :items="items" class="p-4 shadow-lg" color="success" />
+    <UNavigationMenu
+      :items="items"
+      class="shadow-lg"
+      color="warning"
+    />
     <UContainer class="min-h-screen">
       <slot />
     </UContainer>
@@ -12,9 +16,31 @@ import type { NavigationMenuItem } from '@nuxt/ui';
 
 const items = ref<NavigationMenuItem[]>([
   {
-    label: 'Triagem de currículos',
-    icon: 'mdi-file-search',
-    to: '/triagem',
+    label: 'Candidatos',
+    icon: 'mdi-people',
+    children: [
+      {
+        label: 'Listar',
+        icon: 'mdi-format-list-bulleted',
+        to: '/candidatos',
+      },
+    ]
+  },{
+    label: 'Vagas',
+    icon: 'mdi-briefcase',
+    children: [
+      {
+        label: 'Listar',
+        icon: 'mdi-format-list-bulleted',
+        to: '/vagas',
+      },
+      {
+        label: 'Criar',
+        icon: 'mdi-plus-box',
+        to: '/vagas/criar',
+      },
+    ],
+
   }
 ])
 </script>
