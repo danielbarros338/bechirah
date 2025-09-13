@@ -3,6 +3,7 @@ export interface Curriculum {
   name: string;
   ranking: number;
   review: string;
+  professionId: number;
 }
 
 export interface CurriculumResponse {

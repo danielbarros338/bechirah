@@ -9,6 +9,7 @@ export default async function useGetCurriculums(): Promise<Curriculum[]> {
     name: curriculum.json.name,
     review: curriculum.json.review,
     ranking: curriculum.json.ranking,
+    professionId: curriculum.json.professionId,
   }));
 
   return formatedResponse;
