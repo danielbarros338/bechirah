@@ -32,7 +32,7 @@ const items = ref<NavigationMenuItem[]>([
       {
         label: 'Listar',
         icon: 'mdi-format-list-bulleted',
-        to: '/vagas',
+        to: '/vagas/listar',
       },
       {
         label: 'Criar',
