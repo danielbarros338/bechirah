@@ -80,13 +80,14 @@ const columns: TableColumn<any>[] = [
 function openModal(curriculum: Curriculum) {
   selectedCurriculum.value =
     curriculums.value.find(
-      c => c.id === curriculum.id|| null
+      c => c.id === curriculum.id || null
     ) || null;
 
   isModalOpen.value = true
 }
 
 async function onSelectVacancy() {
+  // TODO: Filtrar por nota de corte
   if (allCurriculums.value.length === 0) {
     allCurriculums.value = [...curriculums.value];
   }
@@ -99,7 +100,7 @@ async function onSelectVacancy() {
 onMounted(async () => {
   curriculums.value = await useGetCurriculums();
   allCurriculums.value = [...curriculums.value];
-  
+
   vacancies.value = await useGetVacancies();
 })
 </script>
