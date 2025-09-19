@@ -4,6 +4,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/ui'],
   css: ['~/assets/css/main.css'],
+  app: {
+    baseURL: '/bechirah/'
+  },
   runtimeConfig: {
     // Variáveis privadas (apenas no servidor)
     // webhookSecret: process.env.WEBHOOK_SECRET,
