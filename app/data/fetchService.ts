@@ -4,8 +4,11 @@ export default async function fetchService(
   body: BodyInit | null,
   headers: HeadersInit
 ): Promise<any> {
+  const config = useRuntimeConfig();
+  const webhookBaseUrl = config.public.webhookBaseUrl || 'http://localhost:5678/webhook';
+  
   const response = await fetch(
-    'http://localhost:5678/webhook/' + endpoint,
+    `${webhookBaseUrl}/${endpoint}`,
     {
       method,
       headers,
