@@ -117,9 +117,9 @@ function cancelDeleteVacancy() {
 
 async function confirmDeleteVacancy() {
   if (excludeVacancy.value) {
-    await useDeleteVacancy(excludeVacancy.value.id);
+    await useDeleteVacancy(excludeVacancy.value.id); // TODO: Futuramente deletar como soft delete
     vacancies.value = await useGetVacancies();
-    
+
     excludeVacancy.value = undefined;
   } else {
     // TODO: implementar toast de erro
