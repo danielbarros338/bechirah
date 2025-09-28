@@ -14,7 +14,14 @@
       </UFormField>
 
       <UFormField class="w-full" label="Tipo de Vaga" name="type" required>
-        <UInput v-model="vacancy.type" class="w-full" type="text" />
+        <USelect
+          v-model="vacancy.type"
+          class="w-full"
+          label="Tipo de vaga"
+          placeholder="Selecione o tipo de vaga"
+          :items="vacanciesType"
+          clearable
+        />
       </UFormField>
 
       <UFormField class="w-full" label="Localização" name="location">
@@ -46,6 +53,15 @@ import { vacancySchema } from '../../schemas/vacancy';
 import type { VacancyObj } from '../../types/vacancies';
 
 const toast = useToast();
+
+const vacanciesType = [
+  { label: 'CLT' , value: 'CLT' },
+  { label: 'PJ', value: 'PJ' },
+  { label: 'Freelancer', value: 'Freelancer' },
+  { label: 'Estágio', value: 'Estágio' },
+  { label: 'Trainee', value: 'Trainee' },
+  { label: 'Aprendiz', value: 'Aprendiz' },
+]
 
 const vacancy = ref<VacancyObj>({
   profession: '',
