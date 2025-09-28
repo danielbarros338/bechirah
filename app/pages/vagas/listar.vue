@@ -125,7 +125,7 @@ async function confirmDeleteVacancy() {
 
     toast.add({
       color: 'success',
-      title: 'Vaga criada',
+      title: 'Vaga deletada',
       description: response.message,
     });
 
