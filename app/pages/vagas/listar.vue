@@ -54,8 +54,9 @@ import useDeleteVacancy from '../../composable/useDeleteVacancy';
 import useGetVacancies from '../../composable/useGetVacancies';
 import type { Vacancy } from '../../types/vacancies';
 
-
 const UButton = resolveComponent('UButton') as Component;
+
+const toast = useToast();
 
 const isModalDescriptionOpen = ref(false);
 const isModalExcludeOpen = ref(false);
@@ -117,12 +118,24 @@ function cancelDeleteVacancy() {
 
 async function confirmDeleteVacancy() {
   if (excludeVacancy.value) {
-    await useDeleteVacancy(excludeVacancy.value.id); // TODO: Futuramente deletar como soft delete
+    const response = await useDeleteVacancy(excludeVacancy.value.id); // TODO: Futuramente deletar como soft delete
     vacancies.value = await useGetVacancies();
+
+    console.log(response);
+
+    toast.add({
+      color: 'success',
+      title: 'Vaga criada',
+      description: response.message,
+    });
 
     excludeVacancy.value = undefined;
   } else {
-    // TODO: implementar toast de erro
+    toast.add({
+      color: 'error',
+      title: 'Erro ao excluir vaga',
+      description: 'Ocorreu um erro ao tentar excluir a vaga.',
+    });
   }
 
   isModalExcludeOpen.value = false;

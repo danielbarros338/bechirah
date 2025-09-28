@@ -81,7 +81,7 @@ const onSubmit = async (e: any) => {
   } else {
     toast.add({
       color: 'error',
-      title: 'Erro',
+      title: 'Erro ao criar vaga',
       description: response.message,
     });
   }

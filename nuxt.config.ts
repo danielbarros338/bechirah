@@ -7,19 +7,6 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/bechirah/'
   },
-  // devServer: {
-  //   host: '0.0.0.0',
-  //   port: 3000
-  // },
-  // nitro: {
-  //   devProxy: {
-  //     '/n8n/': {
-  //       target: 'http://localhost:5678/',
-  //       changeOrigin: true,
-  //       prependPath: false,
-  //     }
-  //   }
-  // },
   components: {
     global: true,
     dirs: ['~/app/components']
@@ -31,7 +18,6 @@ export default defineNuxtConfig({
     // Variáveis públicas (expostas ao cliente)
     public: {
       webhookBaseUrl: process.env.WEBHOOK_BASE_URL || 'http://localhost:5678/webhook',
-      // n8nBase: '/n8n',
     }
   }
 })
