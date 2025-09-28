@@ -90,7 +90,7 @@ const columns: TableColumn<Vacancy>[] = [
             color: 'red',
             variant: 'ghost',
             icon: 'i-heroicons-trash',
-            class: 'cursor-pointer',
+            class: 'cursor-pointer text-red-500',
             onClick: () => deleteVacancy(row.original)
           },
           () => ''
