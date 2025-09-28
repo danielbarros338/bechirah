@@ -6,6 +6,7 @@ export default async function fetchService(
 ): Promise<any> {
   const config = useRuntimeConfig();
   const webhookBaseUrl = config.public.webhookBaseUrl || 'http://localhost:5678/webhook';
+  // const webhookBaseUrl = config.public.n8nBase; // DEV Proxy via Nitro
 
   const finalHeaders = new Headers(headers);
 
