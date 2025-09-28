@@ -7,6 +7,10 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/bechirah/'
   },
+  components: {
+    global: true,
+    dirs: ['~/app/components']
+  },
   runtimeConfig: {
     // Variáveis privadas (apenas no servidor)
     // webhookSecret: process.env.WEBHOOK_SECRET,
