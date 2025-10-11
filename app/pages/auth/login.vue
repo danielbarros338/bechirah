@@ -17,7 +17,13 @@
 </template>
 
 <script setup lang="ts">
+import { useAuth } from '../../composable/useAuth';
 import { loginSchema } from '../../schemas/login';
+
+// Definir layout específico para esta página
+definePageMeta({
+  layout: 'auth'
+});
 
 const state = reactive({
   email: undefined,
@@ -26,18 +32,29 @@ const state = reactive({
 
 const toast = useToast();
 const router = useRouter();
+const { login } = useAuth();
 
 const buttonDisabled = computed(() => {
   return !state.email || !state.password;
 });
 
 const onSubmit = async () => {
-  toast.add({
-    color: 'success',
-    title: 'Login realizado',
-    description: 'Você fez o login com sucesso!'
-  });
+  try {
+    await login(state.email!, state.password!);
 
-  router.push('/');
+    toast.add({
+      color: 'success',
+      title: 'Login realizado',
+      description: 'Você fez o login com sucesso!'
+    });
+
+    router.push('/');
+  } catch {
+    toast.add({
+      color: 'error',
+      title: 'Erro no login',
+      description: 'Email ou senha inválidos'
+    });
+  }
 }
 </script>

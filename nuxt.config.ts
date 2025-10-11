@@ -2,10 +2,14 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/ui'],
+  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/ui', 'nuxt-auth-utils'],
   css: ['~/assets/css/main.css'],
   app: {
     baseURL: '/bechirah/'
+  },
+  components: {
+    global: true,
+    dirs: ['~/app/components']
   },
   runtimeConfig: {
     // Variáveis privadas (apenas no servidor)
@@ -13,7 +17,7 @@ export default defineNuxtConfig({
     
     // Variáveis públicas (expostas ao cliente)
     public: {
-      webhookBaseUrl: process.env.WEBHOOK_BASE_URL || 'http://localhost:5678/webhook'
+      webhookBaseUrl: process.env.WEBHOOK_BASE_URL || 'http://localhost:5678/webhook',
     }
   }
 })
