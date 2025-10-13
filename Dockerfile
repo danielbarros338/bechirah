@@ -8,7 +8,6 @@ WORKDIR /app
 # Instalar dependências necessárias
 RUN apk add --no-cache libc6-compat
 
-# Copiar arquivos de configuração de dependências
 COPY package*.json ./
 COPY yarn.lock* ./
 COPY pnpm-lock.yaml* ./
